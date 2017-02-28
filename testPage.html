@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="prebid.js" async></script> 
+<script>
+function detectWidth() {var w = window,d = document, e = d.documentElement, x = screen.width || e.offsetWidth || e.clientWidth;return x;}
+
+var screenSizeMobile = 768;
+var PREBID_TIMEOUT = 2000;
+var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+var adUnits = adUnits || [];
+var pbjs = pbjs || {};
+    pbjs.que = pbjs.que || [];
+
+/*Size Mapping*/
+var sizeMap = [];
+	// Desktop sizes
+	sizeMap['sidebar'] = [[300,250]];
+	sizeMap['top-page'] = [[728,90]];
+	sizeMap['above-answers'] = [[728,90]];
+	sizeMap['below-answers'] = [[728,90],[300,250]];
+	sizeMap['anchor'] = [[728,90]];
+	sizeMap['above-comments'] = [[728,90]];
+	sizeMap['below-quiz'] = [[728,90],[300,250]];
+	if(detectWidth() < screenSizeMobile)
+	{
+		// Mobile sizes
+		sizeMap['sidebar'] = [[300,250]];
+		sizeMap['top-page'] = [[300,250],[320,50],[320,100],[320,400]];
+		sizeMap['above-answers'] = [[300,250],[320,50],[320,100],[320,400]];
+		sizeMap['below-answers'] = [[300,250],[320,50],[320,100],[320,400]];
+		sizeMap['anchor'] = [[320,50]];
+		sizeMap['above-comments'] = [[300,250],[320,50],[320,100],[320,400]];
+		sizeMap['below-quiz'] = [[300,250],[320,50],[320,100],[320,400]];		
+	}
+
+function initAdserver() 
+	{
+        if (pbjs.initAdserverSet) return;
+        // Load GPT
+        (function() {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+                '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+        pbjs.initAdserverSet = true;
+    };
+setTimeout(initAdserver, PREBID_TIMEOUT);	
+
+googletag.cmd.push(function() {
+	if(detectWidth() >= screenSizeMobile)
+	{
+		// Desktop Only
+		googletag.defineSlot('/342845636/sidebar', sizeMap['sidebar'], 'div-gpt-ad-1488212235814-5').addService(googletag.pubads());
+	}
+	googletag.defineSlot('/342845636/above-answers', sizeMap['above-answers'], 'div-gpt-ad-1488212235814-0').addService(googletag.pubads());
+    googletag.defineSlot('/342845636/above-comments', sizeMap['above-comments'], 'div-gpt-ad-1488212235814-1').addService(googletag.pubads());
+    googletag.defineSlot('/342845636/anchor', sizeMap['anchor'], 'div-gpt-ad-1488212235814-2').addService(googletag.pubads());
+    googletag.defineSlot('/342845636/below-answers', sizeMap['below-answers'] , 'div-gpt-ad-1488212235814-3').addService(googletag.pubads());
+    googletag.defineSlot('/342845636/below-quiz', sizeMap['below-quiz'], 'div-gpt-ad-1488212235814-4').addService(googletag.pubads());
+     googletag.defineSlot('/342845636/top-page', sizeMap['top-page'], 'div-gpt-ad-1488212235814-6').addService(googletag.pubads());
+    });
+
+if(detectWidth() >= screenSizeMobile)
+{
+/***
+** DESKTOP
+***/
+		// Desktop Only
+		adUnits.push({
+        code: "div-gpt-ad-1488212235814-5", // sidebar
+        sizes: sizeMap['sidebar'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-5",ad_unit:"/342845636/sidebar"}}
+        		]
+    	});
+
+
+adUnits.push({
+        code: "div-gpt-ad-1488212235814-0", // above-answers
+        sizes: sizeMap['above-answers'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-0",ad_unit:"/342845636/above-answers"}}
+        		]
+    });
+adUnits.push({
+        code: "div-gpt-ad-1488212235814-1", // above-comments
+        sizes: sizeMap['above-comments'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-1",ad_unit:"/342845636/above-comments"}}
+        		]
+    });
+adUnits.push({
+        code: "div-gpt-ad-1488212235814-2", // anchor
+        sizes: sizeMap['anchor'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-2",ad_unit:"/342845636/anchor"}}
+        		]
+    });
+adUnits.push({
+        code: "div-gpt-ad-1488212235814-3", // below-answers
+        sizes: sizeMap['below-answers'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-3",ad_unit:"/342845636/below-answers"}}
+        		]
+    });
+adUnits.push({
+        code: "div-gpt-ad-1488212235814-4", // below-quiz
+        sizes: sizeMap['below-quiz'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-4",ad_unit:"/342845636/below-quiz"}}
+        		]
+    });
+adUnits.push({
+        code: "div-gpt-ad-1488212235814-6", // top-page
+        sizes: sizeMap['top-page'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-6",ad_unit:"/342845636/top-page"}}
+        		]
+    });
+} else {
+/***
+** Mobile
+***/
+adUnits.push({
+        code: "div-gpt-ad-1488212235814-0", // above-answers
+        sizes: sizeMap['above-answers'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-0",ad_unit:"/342845636/above-answers"}}
+        		]
+    });
+adUnits.push({
+        code: "div-gpt-ad-1488212235814-1", // above-comments
+        sizes: sizeMap['above-comments'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-1",ad_unit:"/342845636/above-comments"}}
+        		]
+    });
+adUnits.push({
+        code: "div-gpt-ad-1488212235814-2", // anchor
+        sizes: sizeMap['anchor'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-2",ad_unit:"/342845636/anchor"}}
+        		]
+    });
+adUnits.push({
+        code: "div-gpt-ad-1488212235814-3", // below-answers
+        sizes: sizeMap['below-answers'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-3",ad_unit:"/342845636/below-answers"}}
+        		]
+    });
+adUnits.push({
+        code: "div-gpt-ad-1488212235814-4", // below-quiz
+        sizes: sizeMap['below-quiz'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-4",ad_unit:"/342845636/below-quiz"}}
+        		]
+    });
+adUnits.push({
+        code: "div-gpt-ad-1488212235814-6", // top-page
+        sizes: sizeMap['top-page'],
+        bids: [
+        		{bidder: "aol",params: {placement: "1111",network: "11111.1",sizeId: "170",alias: "1"}},
+        		{bidder: "brealtime",params: {placementId: "9111111"}},
+        		{bidder: 'pulsepoint',params: {cf: '300x250', cp: 1 ,ct: 1 }},
+        		{bidder: "sekindoUM",params: {spaceId: "1"}}, 
+        		{bidder: 'sovrn',params: {tagid: '1'}},
+        		{bidder:"sonobi",params:{dom_id:"div-gpt-ad-1488212235814-6",ad_unit:"/342845636/top-page"}}
+        		]
+    });	
+}
+
+pbjs.que.push(function() {
+    pbjs.addAdUnits(adUnits);
+    pbjs.setBidderSequence('random');
+
+    pbjs.bidderSettings = {
+        standard: {
+            adserverTargeting: [{
+                key: "hb_bidder",
+                val: function(bidResponse) {
+                    return bidResponse.bidderCode;
+                }
+            }, {
+                key: "hb_adid",
+                val: function(bidResponse) {
+                    return bidResponse.adId;
+                }
+            }, {
+                key: "hb_pb",
+                val: function(bidResponse) {
+                    if(bidResponse.cpm >= 20) return '20.00';
+                    return bidResponse.pbHg;
+                }
+            }]
+        },
+        brealtime: {
+            bidCpmAdjustment: function(bidCpm) {
+                return bidCpm * .80;
+            }
+        }
+    };
+    pbjs.requestBids({
+        bidsBackHandler: function(bidResponses) {
+            initAdserver();
+        },
+        timeout: PREBID_TIMEOUT
+    })
+});
+
+googletag.cmd.push(function() {
+
+        pbjs.que.push(function() {
+            pbjs.setTargetingForGPTAsync();
+        });
+        //googletag.pubads().collapseEmptyDivs();
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+    });
+</script>
+</head>
+<body>
+
+
+
+<!-- /342845636/above-answers -->
+<div id='div-gpt-ad-1488212235814-0'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1488212235814-0'); });
+</script>
+</div>
+
+<!-- /342845636/above-comments -->
+<div id='div-gpt-ad-1488212235814-1'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1488212235814-1'); });
+</script>
+</div>
+
+<!-- /342845636/anchor -->
+<div id='div-gpt-ad-1488212235814-2'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1488212235814-2'); });
+</script>
+</div>
+
+<!-- /342845636/below-answers -->
+<div id='div-gpt-ad-1488212235814-3'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1488212235814-3'); });
+</script>
+</div>
+
+<!-- /342845636/below-quiz -->
+<div id='div-gpt-ad-1488212235814-4'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1488212235814-4'); });
+</script>
+</div>
+
+<!-- /342845636/sidebar -->
+<div id='div-gpt-ad-1488212235814-5'>
+<script>
+if(detectWidth() >= screenSizeMobile) {googletag.cmd.push(function() { googletag.display('div-gpt-ad-1488212235814-5'); }) };
+</script>
+</div>
+
+<!-- /342845636/top-page -->
+<div id='div-gpt-ad-1488212235814-6'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1488212235814-6'); });
+</script>
+</div>
+
+</body>
+</html>
